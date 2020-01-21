@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 
 from Server.users.views import ObtainJWTView
@@ -21,4 +22,4 @@ from Server.users.views import ObtainJWTView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-token-auth/', ObtainJWTView.as_view())
-]
+] + staticfiles_urlpatterns()
