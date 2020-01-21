@@ -36,9 +36,10 @@ resource "azurerm_app_service" "sahn-appservice" {
   app_service_plan_id = azurerm_app_service_plan.test-appservice.id
 
   site_config {
-    scm_type = "LocalGit"
     python_version = "3.4"
     use_32_bit_worker_process = true
   }
 }
 
+# User: eduardoGarza
+# Password: n0gpJMZqNvZ5bQyloMo73equX8BThy0q3mfiNb

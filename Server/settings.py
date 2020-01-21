@@ -25,7 +25,7 @@ SECRET_KEY = 'iga)=yggb35v)yvpyc(6%u2q06pw(%c-ln=rrbujf5z#)cdd%c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://luis-test-app.azurewebsites.net']
 
 
 # Application definition
