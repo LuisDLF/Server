@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_jwt',
+    'Server.users'
 ]
 
 MIDDLEWARE = [
@@ -81,6 +84,10 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'users.User'
+
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
+                           'Server.users.custom_auth.CustomAuth')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -100,6 +107,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+JWT_AUTH = {
+
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

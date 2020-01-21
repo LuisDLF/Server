@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Server.users.views import ObtainJWTView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-token-auth/', ObtainJWTView.as_view())
 ]
